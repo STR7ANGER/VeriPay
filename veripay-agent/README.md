@@ -33,6 +33,7 @@ Open [http://localhost:3000](http://localhost:3000).
 - Next.js 16
 - TypeScript
 - Tailwind CSS
+- shadcn/ui
 - wagmi + viem
 - Gemini API
 - Supabase client scaffold

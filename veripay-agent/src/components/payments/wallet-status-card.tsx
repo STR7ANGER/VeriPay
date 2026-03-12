@@ -5,6 +5,15 @@ import { useAccount, useConnect, useDisconnect, useSwitchChain } from "wagmi";
 import { injected } from "wagmi/connectors";
 import { baseSepolia } from "@/lib/chains";
 import { formatAddress } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 type WalletStatusCardProps = {
   walletAddress?: string;
@@ -27,27 +36,24 @@ export function WalletStatusCard({
   const wrongChain = isConnected && chainId !== baseSepolia.id;
 
   return (
-    <div className="rounded-[2rem] border border-stone-900/10 bg-white/80 p-6 shadow-[0_30px_80px_rgba(53,33,9,0.14)] backdrop-blur">
-      <p className="text-xs font-semibold tracking-[0.28em] text-stone-500 uppercase">
-        Wallet
-      </p>
-      <div className="mt-4 flex flex-col gap-4">
+    <Card>
+      <CardHeader>
+        <Badge>Wallet</Badge>
         <div className="flex flex-col gap-1">
-          <h2 className="text-2xl font-semibold tracking-[-0.03em]">
+          <CardTitle>
             {isConnected ? "Wallet connected" : "Connect Phantom"}
-          </h2>
-          <p className="text-sm leading-6 text-stone-700">
+          </CardTitle>
+          <CardDescription>
             The app uses an injected EVM wallet flow so Phantom is preferred,
             but other compatible EVM wallets can work too.
-          </p>
+          </CardDescription>
         </div>
-
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
         <div className="rounded-[1.5rem] bg-stone-100 p-4 text-sm text-stone-700">
           <div className="flex flex-wrap items-center gap-3">
-            <StatusPill label={isConnected ? "Connected" : "Disconnected"} />
-            <StatusPill
-              label={wrongChain ? "Wrong network" : "Base Sepolia ready"}
-            />
+            <Badge>{isConnected ? "Connected" : "Disconnected"}</Badge>
+            <Badge>{wrongChain ? "Wrong network" : "Base Sepolia ready"}</Badge>
           </div>
           <p className="mt-3 break-all font-mono text-xs">
             {walletAddress
@@ -58,7 +64,7 @@ export function WalletStatusCard({
 
         <div className="flex flex-wrap gap-3">
           {!isConnected ? (
-            <button
+            <Button
               type="button"
               onClick={() =>
                 connect({
@@ -67,43 +73,34 @@ export function WalletStatusCard({
                 })
               }
               disabled={isConnecting}
-              className="rounded-full bg-stone-950 px-5 py-3 text-sm font-semibold text-stone-50 transition hover:bg-stone-800 disabled:cursor-not-allowed disabled:bg-stone-400"
             >
               {isConnecting ? "Connecting..." : "Connect wallet"}
-            </button>
+            </Button>
           ) : (
             <>
               {wrongChain ? (
-                <button
+                <Button
                   type="button"
                   onClick={() => switchChain({ chainId: baseSepolia.id })}
                   disabled={isSwitching}
-                  className="rounded-full bg-amber-500 px-5 py-3 text-sm font-semibold text-stone-950 transition hover:bg-amber-400 disabled:cursor-not-allowed disabled:bg-amber-200"
+                  variant="amber"
                 >
                   {isSwitching ? "Switching..." : "Switch to Base Sepolia"}
-                </button>
+                </Button>
               ) : null}
-              <button
+              <Button
                 type="button"
                 onClick={() => disconnect()}
-                className="rounded-full border border-stone-900/10 px-5 py-3 text-sm font-semibold text-stone-800 transition hover:bg-stone-100"
+                variant="outline"
               >
                 Disconnect
-              </button>
+              </Button>
             </>
           )}
         </div>
 
         {error ? <p className="text-sm text-red-700">{error.message}</p> : null}
-      </div>
-    </div>
-  );
-}
-
-function StatusPill({ label }: { label: string }) {
-  return (
-    <span className="rounded-full border border-stone-900/10 bg-white px-3 py-1 text-xs font-semibold tracking-[0.16em] uppercase text-stone-600">
-      {label}
-    </span>
+      </CardContent>
+    </Card>
   );
 }

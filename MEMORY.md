@@ -8,10 +8,12 @@ Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
 
 - zero-budget stack
 - wallet preference is `Phantom`
+- UI component system is now `shadcn/ui`
 - backend should stay simple and colocated with the app
 - only Base Sepolia is needed for MVP
 - AI must be advisory only
 - user asked for workflow files, issue tracking, commits, and push
+- user wants Linear-first execution once Linear access is available
 
 ## Stack Decisions
 
@@ -33,6 +35,7 @@ Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
 - workflow harness files created
 - planning set created
 - Next.js app scaffolded in `veripay-agent/`
+- `shadcn/ui` base setup added
 - wallet connect and Base Sepolia config implemented
 - Gemini extraction route implemented
 - formatting, lint, and production build passed

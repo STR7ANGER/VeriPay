@@ -4,12 +4,14 @@
 
 1. Read `MEMORY.md`.
 2. Open `TASKS.md` and pick the first unblocked issue.
-3. Use `.planning/<ISSUE>/plan.md`.
-4. Implement on the issue-linked branch.
-5. Run checks before commit.
-6. Record validation notes in `.planning/<ISSUE>/feedback.md`.
-7. Commit with the issue key in the message.
-8. Push and update issue status.
+3. Verify the issue status, assignee, and dependencies in Linear.
+4. Use `.planning/<ISSUE>/plan.md`.
+5. Implement on the issue-linked branch.
+6. Run checks before commit.
+7. Reproduce and validate UI changes in Chrome DevTools MCP when available.
+8. Record validation notes in `.planning/<ISSUE>/feedback.md`.
+9. Commit with the issue key in the message.
+10. Push, update Linear, and refresh `TASKS.md`.
 
 ## Planning Convention
 
@@ -33,4 +35,4 @@
 
 ## Current Limitation
 
-Linear MCP is not available in this environment, so local issue docs and `TASKS.md` are the execution view for now.
+Linear MCP and Chrome DevTools MCP are not available in this environment, so local issue docs and `TASKS.md` are the execution view for now. When those tools are available again, they take precedence for issue state and browser validation.
