@@ -39,7 +39,6 @@ Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
 
 ## Immediate Next Steps
 
-1. Commit the work in issue-aligned commits.
-2. Rename the branch to `main`.
-3. Add the GitHub remote.
-4. Push to the target repository.
+1. Start Phase 2: policy engine and approval flow.
+2. Add Supabase persistence for payment requests and audit events.
+3. Add transaction payload generation and execution path.

@@ -8,7 +8,7 @@
 | VP-002 | Implement wallet connect and Base Sepolia configuration | P0 | Done | VP-001 | Injected EVM wallet with Phantom-first UX |
 | VP-003 | Implement Gemini intent extraction adapter and `/api/payment-requests` route | P0 | Done | VP-001 | Strict schema validation |
 | VP-004 | Build payment request UI and parsed intent result card | P0 | Done | VP-002, VP-003 | Phase 1 UI |
-| VP-005 | Add lint, environment docs, and GitHub push workflow | P1 | In Progress | VP-001 | Finalize bootstrap and publish |
+| VP-005 | Add lint, environment docs, and GitHub push workflow | P1 | Done | VP-001 | Finalize bootstrap and publish |
 
 ## Working Rules
 

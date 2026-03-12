@@ -2,7 +2,10 @@
 
 ## Status
 
-- waiting for final git commit and push steps
+- bootstrap validation completed
+- branch renamed to `main`
+- remote configured
+- push to GitHub succeeded
 
 ## Validation
 
