@@ -10,11 +10,12 @@
 | VP-004 | Build payment request UI and parsed intent result card | P0 | Done | VP-002, VP-003 | Phase 1 UI |
 | VP-005 | Add lint, environment docs, and GitHub push workflow | P1 | Done | VP-001 | Finalize bootstrap and publish |
 | VP-012 | Add shadcn/ui baseline and reinforce Linear workflow docs | P1 | Done | VP-005 | Real Linear access still pending |
-| VP-006 | Add deterministic policy engine and approval verdict model | P0 | Todo | VP-003 | Phase 2 backend start |
-| VP-007 | Persist requests, intents, and audit events in Supabase | P0 | Todo | VP-006 | Introduce migrations and repositories |
-| VP-008 | Build approval UI and policy result panel | P0 | Todo | VP-006, VP-007 | UI needs browser validation |
-| VP-009 | Generate transaction payload and execute ETH transfer on Base Sepolia | P0 | Todo | VP-008 | Wallet signing path |
-| VP-010 | Create proof bundle hash and execution history timeline | P1 | Todo | VP-009 | Pre-submission verification layer |
+| VP-013 | Implement Bankr-first delegated guardrails flow | P0 | Done | VP-003, VP-012 | Policy, permit, execution, proof |
+| VP-006 | Add deterministic policy engine and approval verdict model | P0 | Done | VP-003 | Landed inside VP-013 |
+| VP-007 | Persist requests, intents, and audit events in Supabase | P0 | Todo | VP-013 | Replace in-memory repo |
+| VP-008 | Build approval UI and policy result panel | P0 | Done | VP-006, VP-007 | Landed with in-memory lifecycle |
+| VP-009 | Generate Bankr execution path for approved transfers | P0 | Done | VP-008 | Rehearsal + live Bankr route |
+| VP-010 | Create proof bundle hash and execution history timeline | P1 | Done | VP-009 | Proof hash and audit timeline shipped |
 | VP-011 | Record demo, polish README, and finalize submission assets | P1 | Todo | VP-010 | Final hackathon packaging |
 
 ## Working Rules

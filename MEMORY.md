@@ -2,15 +2,15 @@
 
 ## Current Goal
 
-Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
+Ship the Bankr-first delegated-guardrails version of `VeriPay Agent`.
 
 ## Current Constraints
 
 - zero-budget stack
-- wallet preference is `Phantom`
 - UI component system is now `shadcn/ui`
 - backend should stay simple and colocated with the app
-- only Base Sepolia is needed for MVP
+- Bankr is the load-bearing execution layer
+- Base Sepolia is rehearsal mode, not the final live path
 - AI must be advisory only
 - user asked for workflow files, issue tracking, commits, and push
 - user wants Linear-first execution once Linear access is available
@@ -19,10 +19,11 @@ Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
 
 - app directory: `veripay-agent`
 - framework: `Next.js`
-- chain: `Base Sepolia`
-- wallet: injected EVM wallet with Phantom-first UX
+- execution partner: `Bankr`
+- rehearsal chain: `Base Sepolia`
+- live demo target: `Base Mainnet`
 - AI provider: `Gemini`
-- DB for later phases: `Supabase Postgres`
+- persistence next: `Supabase Postgres`
 
 ## Known Risks
 
@@ -36,12 +37,12 @@ Bootstrap `VeriPay Agent` and deliver Phase 0 plus Phase 1.
 - planning set created
 - Next.js app scaffolded in `veripay-agent/`
 - `shadcn/ui` base setup added
-- wallet connect and Base Sepolia config implemented
-- Gemini extraction route implemented
-- formatting, lint, and production build passed
+- Bankr-first lifecycle implemented in-memory
+- policy verdict, execution permit, execution receipt, proof hash, and audit trail added
+- formatting, lint, and production build passed on the Bankr flow
 
 ## Immediate Next Steps
 
-1. Start Phase 2: policy engine and approval flow.
-2. Add Supabase persistence for payment requests and audit events.
-3. Add transaction payload generation and execution path.
+1. Replace the in-memory lifecycle repository with Supabase.
+2. Validate a real Bankr-backed live transfer with a small value.
+3. Finalize the demo and submission assets around the Bankr bounty story.

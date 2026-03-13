@@ -2,78 +2,37 @@
 
 ## One-line Pitch
 
-`VeriPay Agent` lets an AI agent prepare and execute payments safely by forcing every payment through structured intent extraction, policy checks, approval rules, and a verifiable audit trail.
+`VeriPay Agent` is a policy and verification layer for Bankr-powered agent payments.
 
-## Problem
+## Product Direction
 
-AI agents can increasingly operate wallets and trigger transactions, but current agent-driven payment flows are unsafe for real users because:
+We are building a narrow trust layer:
 
-- payment decisions are opaque
-- approval logic is ad hoc
-- policy constraints are rarely enforced consistently
-- audit trails are weak or non-verifiable
-- users cannot prove what the agent intended versus what was executed
+`natural-language payment intent -> policy evaluation -> bounded execution permit -> Bankr execution -> proof trail`
 
-## Why This Can Win
+## Why This Version Is Stronger
 
-This idea is strong for a hackathon because it sits at the intersection of:
+- it directly fits the Bankr partner track
+- it preserves the original safety thesis
+- it rewards real onchain outcomes instead of simulated flows
+- it gives judges a clear human-agent collaboration story
 
-- AI agents
-- crypto payments
-- safety and trust
-- on-chain verifiability
+## Primary Demo Flow
 
-Judges can understand the problem quickly, and the demo can show a full end-to-end loop with visible proof.
-
-## Narrow MVP Scope
-
-We are not building a generic agent wallet platform.
-
-We are building one narrow product:
-
-`An AI-powered payment operator for small teams, freelancers, and builders using Base Sepolia.`
-
-## Primary User Story
-
-The user types:
-
-`Pay 0.01 ETH to Rohan for landing page design work`
-
-System behavior:
-
-1. AI converts this into a structured payment intent.
-2. Policy engine evaluates it against configured rules.
-3. The system displays risk and reasoning.
-4. User approves in the UI.
-5. Wallet signs and sends the transaction.
-6. Audit log and proof record are stored.
-7. A hash of the final receipt can be anchored on-chain.
-
-## Demo Promise
-
-By the end of the hackathon, the demo should prove:
-
-- an AI can interpret payment instructions
-- the system does not trust the AI blindly
-- policies are machine-enforced
-- the human stays in control
-- the resulting action is verifiable later
-
-## Core Product Principles
-
-- AI proposes, policy constrains, human approves
-- every payment has a traceable lifecycle
-- all critical state changes are logged
-- verification is a feature, not a backend detail
-- one clean workflow is better than five shallow features
+1. User submits a payment request in plain English.
+2. Gemini extracts a `PaymentIntentDraft`.
+3. VeriPay returns a `PolicyVerdict`.
+4. User approves the bounded request and mints an `ExecutionPermit`.
+5. VeriPay sends the approved transfer through Bankr.
+6. VeriPay stores the execution receipt, proof hash, and audit trail.
 
 ## Success Criteria
 
-The project is successful if a judge can see, in under 2 minutes:
+The project is successful if a judge can see:
 
-- the payment request
-- the extracted payment intent
-- the policy result
-- the approval gate
-- the final transaction
-- the proof trail
+- the original prompt
+- the structured intent
+- the policy verdict
+- the bounded permit
+- the execution result
+- the proof and audit timeline

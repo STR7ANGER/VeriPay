@@ -1,7 +1,6 @@
 type GeminiExtractionResponse = {
-  recipientAddress: string;
+  recipient: string;
   amountEth: string;
-  tokenSymbol: string;
   reason: string;
   confidenceScore: number;
   explanation: string;
@@ -9,7 +8,6 @@ type GeminiExtractionResponse = {
 
 export async function extractPaymentIntentWithGemini(input: {
   rawPrompt: string;
-  walletAddress?: string;
 }) {
   const apiKey = process.env.GEMINI_API_KEY;
   const model = process.env.GEMINI_MODEL ?? "gemini-2.0-flash";
@@ -32,14 +30,14 @@ export async function extractPaymentIntentWithGemini(input: {
             parts: [
               {
                 text: [
-                  "You are an extraction service for a crypto payment app.",
+                  "You are an extraction service for VeriPay Agent.",
                   "Return JSON only.",
-                  "Infer a single ETH payment on Base Sepolia from the prompt.",
+                  "Infer a single ETH transfer intent from the prompt.",
+                  "The recipient may be an EVM address, ENS name, or social handle.",
                   "Do not invent fields outside the schema.",
                   "If data is missing, make the best safe extraction and explain uncertainty.",
-                  `Wallet address: ${input.walletAddress ?? "unknown"}`,
                   `Prompt: ${input.rawPrompt}`,
-                  'Schema: {"recipientAddress":"0x...","amountEth":"0.001","tokenSymbol":"ETH","reason":"string","confidenceScore":0.8,"explanation":"string"}',
+                  'Schema: {"recipient":"0x... or vitalik.eth or @username","amountEth":"0.001","reason":"string","confidenceScore":0.8,"explanation":"string"}',
                 ].join("\n"),
               },
             ],
