@@ -6,15 +6,15 @@ export default function DashboardPage() {
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex flex-col gap-3">
           <p className="text-xs font-semibold tracking-[0.28em] text-stone-500 uppercase">
-            Phase 0 + Phase 1
+            Bankr-first guardrails
           </p>
           <h1 className="text-4xl font-semibold tracking-[-0.04em]">
-            Payment intent workbench
+            Delegated payment execution workbench
           </h1>
           <p className="max-w-3xl text-base leading-7 text-stone-700">
-            Submit a natural-language payment request, let Gemini produce a
-            structured intent draft, and review it before any policy evaluation
-            or execution happens.
+            Submit a natural-language payment request, evaluate it with
+            deterministic policy checks, mint a bounded execution permit, and
+            route the approved transfer through Bankr.
           </p>
         </div>
         <PaymentIntentWorkbench />

@@ -16,72 +16,71 @@ This file is the source draft for the Linear board until Linear MCP access is av
 
 #### Ticket 1
 
-- Title: `Policy engine for payment intent evaluation`
+- Title: `Persist VeriPay lifecycle state in Supabase`
 - Suggested key: `UJJ-TBD-1`
 - Assignee: `Codex`
 - Priority: `Urgent`
 - Depends on: `none`
 - Acceptance criteria:
-  - deterministic policy service exists
-  - max amount and recipient allowlist rules are supported
-  - verdict returns `approved`, `manual_review`, or `blocked`
-  - tests cover core rule paths
+  - current in-memory lifecycle moves to Postgres
+  - requests, verdicts, permits, receipts, and audit events are persisted
+  - current dashboard behavior remains unchanged
 
 #### Ticket 2
 
-- Title: `Persist payment requests and audit events in Supabase`
+- Title: `Validate live Bankr execution on Base mainnet`
 - Suggested key: `UJJ-TBD-2`
 - Assignee: `Codex`
 - Priority: `Urgent`
 - Depends on: `UJJ-TBD-1`
 - Acceptance criteria:
-  - schema created for requests, intents, policy results, and audit logs
-  - repository layer is introduced
-  - request creation path writes persistent records
+  - live Bankr submit path is tested with a tiny transfer
+  - success and failure responses are captured in audit records
+  - final demo path is documented
 
 ### Day 2
 
 #### Ticket 3
 
-- Title: `Approval workflow UI with policy result panel`
+- Title: `Tighten blocked and manual-review scenarios`
 - Suggested key: `UJJ-TBD-3`
 - Assignee: `Codex`
 - Priority: `High`
 - Depends on: `UJJ-TBD-1`, `UJJ-TBD-2`
 - Acceptance criteria:
-  - user can review verdict and reasons
-  - user can approve or reject a payment request
+  - blocked overspend case is clear in the UI
+  - unresolved ENS or social recipient case is clear in the UI
   - UI state is validated in browser before PR
 
 #### Ticket 4
 
-- Title: `Generate transaction payload and execute Base Sepolia payment`
+- Title: `Add MetaMask Delegations as an optional permit wrapper`
 - Suggested key: `UJJ-TBD-4`
 - Assignee: `Codex`
 - Priority: `High`
 - Depends on: `UJJ-TBD-3`
 - Acceptance criteria:
-  - approved request can produce a wallet transaction payload
-  - Phantom-compatible signing path works
-  - tx hash is recorded and surfaced in UI
+  - delegation logic wraps the existing permit abstraction
+  - current Bankr-first flow is not regressed
+  - delegated authorization is optional, not a blocker
 
 ### Day 3
 
 #### Ticket 5
 
-- Title: `Create proof bundle hash and execution history timeline`
+- Title: `Submission polish and final README rewrite`
 - Suggested key: `UJJ-TBD-5`
 - Assignee: `Codex`
 - Priority: `Medium`
 - Depends on: `UJJ-TBD-4`
 - Acceptance criteria:
-  - execution receipt bundle is canonicalized and hashed
-  - history timeline shows all major lifecycle steps
-  - proof data is queryable from the UI
+  - README matches the shipped Bankr-first architecture
+  - screenshots and demo path are aligned with the real product
+  - partner-track language is consistent
 
 #### Ticket 6
 
-- Title: `Hackathon polish and submission pack`
+- Title: `Submission pack and demo asset finalization`
 - Suggested key: `UJJ-TBD-6`
 - Assignee: `Codex`
 - Priority: `Medium`
