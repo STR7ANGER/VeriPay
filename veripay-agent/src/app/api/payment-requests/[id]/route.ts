@@ -11,7 +11,7 @@ type RouteContext = {
 export async function GET(_request: Request, context: RouteContext) {
   try {
     const { id } = await context.params;
-    const result = getPaymentRequestDetail(id);
+    const result = await getPaymentRequestDetail(id);
     return NextResponse.json(result);
   } catch (error) {
     return toRouteErrorResponse(error);
