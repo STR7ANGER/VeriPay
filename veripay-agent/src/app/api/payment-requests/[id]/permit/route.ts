@@ -14,7 +14,7 @@ export async function POST(request: Request, context: RouteContext) {
     const { id } = await context.params;
     const json = await request.json();
     const input = createExecutionPermitInputSchema.parse(json);
-    const result = createExecutionPermit(id, input);
+    const result = await createExecutionPermit(id, input);
     return NextResponse.json(result);
   } catch (error) {
     return toRouteErrorResponse(error);

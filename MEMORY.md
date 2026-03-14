@@ -43,6 +43,5 @@ Ship the Bankr-first delegated-guardrails version of `VeriPay Agent`.
 
 ## Immediate Next Steps
 
-1. Replace the in-memory lifecycle repository with Supabase.
-2. Validate a real Bankr-backed live transfer with a small value.
-3. Finalize the demo and submission assets around the Bankr bounty story.
+1. Validate a real Bankr-backed live transfer with a small value.
+2. Finalize the demo and submission assets around the Bankr bounty story.

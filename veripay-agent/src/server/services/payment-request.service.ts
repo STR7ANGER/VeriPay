@@ -66,8 +66,8 @@ function appendAudit(
   );
 }
 
-function loadPaymentRequest(paymentRequestId: string) {
-  const record = getPaymentRequest(paymentRequestId);
+async function loadPaymentRequest(paymentRequestId: string) {
+  const record = await getPaymentRequest(paymentRequestId);
 
   if (!record) {
     throw new AppError("Payment request not found.", {
@@ -138,15 +138,15 @@ export async function createPaymentRequest(
     ],
   });
 
-  return savePaymentRequest(record);
+  return await savePaymentRequest(record);
 }
 
-export function getPaymentRequestDetail(paymentRequestId: string) {
-  return loadPaymentRequest(paymentRequestId);
+export async function getPaymentRequestDetail(paymentRequestId: string) {
+  return await loadPaymentRequest(paymentRequestId);
 }
 
-export function evaluatePaymentRequestPolicy(paymentRequestId: string) {
-  const record = loadPaymentRequest(paymentRequestId);
+export async function evaluatePaymentRequestPolicy(paymentRequestId: string) {
+  const record = await loadPaymentRequest(paymentRequestId);
   const policyVerdict = evaluatePolicy(record.intent);
 
   record.policyVerdict = policyVerdict;
@@ -162,15 +162,15 @@ export function evaluatePaymentRequestPolicy(paymentRequestId: string) {
     policyVerdict,
   );
 
-  return savePaymentRequest(record);
+  return await savePaymentRequest(record);
 }
 
-export function createExecutionPermit(
+export async function createExecutionPermit(
   paymentRequestId: string,
   rawInput: CreateExecutionPermitInput,
 ) {
   const input = createExecutionPermitInputSchema.parse(rawInput);
-  const record = loadPaymentRequest(paymentRequestId);
+  const record = await loadPaymentRequest(paymentRequestId);
 
   if (!record.policyVerdict) {
     throw new AppError("Run policy evaluation before creating a permit.", {
@@ -234,7 +234,7 @@ export function createExecutionPermit(
     record.permit,
   );
 
-  return savePaymentRequest(record);
+  return await savePaymentRequest(record);
 }
 
 export async function executePaymentRequest(
@@ -242,7 +242,7 @@ export async function executePaymentRequest(
   rawInput: ExecutePaymentRequestInput,
 ) {
   const input = executePaymentRequestInputSchema.parse(rawInput);
-  const record = loadPaymentRequest(paymentRequestId);
+  const record = await loadPaymentRequest(paymentRequestId);
 
   if (!record.permit) {
     throw new AppError("Create an execution permit before executing.", {
@@ -307,7 +307,7 @@ export async function executePaymentRequest(
       record.executionReceipt,
     );
 
-    return savePaymentRequest(record);
+    return await savePaymentRequest(record);
   }
 
   try {
@@ -400,5 +400,5 @@ export async function executePaymentRequest(
     );
   }
 
-  return savePaymentRequest(record);
+  return await savePaymentRequest(record);
 }

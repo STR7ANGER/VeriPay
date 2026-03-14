@@ -12,7 +12,7 @@
 | VP-012 | Add shadcn/ui baseline and reinforce Linear workflow docs | P1 | Done | VP-005 | Real Linear access still pending |
 | VP-013 | Implement Bankr-first delegated guardrails flow | P0 | Done | VP-003, VP-012 | Policy, permit, execution, proof |
 | VP-006 | Add deterministic policy engine and approval verdict model | P0 | Done | VP-003 | Landed inside VP-013 |
-| VP-007 | Persist requests, intents, and audit events in Supabase | P0 | Todo | VP-013 | Replace in-memory repo |
+| VP-007 | Persist requests, intents, and audit events in Supabase | P0 | Done | VP-013 | Supabase repo + migration + fallback |
 | VP-008 | Build approval UI and policy result panel | P0 | Done | VP-006, VP-007 | Landed with in-memory lifecycle |
 | VP-009 | Generate Bankr execution path for approved transfers | P0 | Done | VP-008 | Rehearsal + live Bankr route |
 | VP-010 | Create proof bundle hash and execution history timeline | P1 | Done | VP-009 | Proof hash and audit timeline shipped |
