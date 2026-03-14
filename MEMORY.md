@@ -44,4 +44,3 @@ Ship the Bankr-first delegated-guardrails version of `VeriPay Agent`.
 ## Immediate Next Steps
 
 1. Validate a real Bankr-backed live transfer with a small value.
-2. Finalize the demo and submission assets around the Bankr bounty story.
