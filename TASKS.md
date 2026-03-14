@@ -16,7 +16,7 @@
 | VP-008 | Build approval UI and policy result panel | P0 | Done | VP-006, VP-007 | Landed with in-memory lifecycle |
 | VP-009 | Generate Bankr execution path for approved transfers | P0 | Done | VP-008 | Rehearsal + live Bankr route |
 | VP-010 | Create proof bundle hash and execution history timeline | P1 | Done | VP-009 | Proof hash and audit timeline shipped |
-| VP-011 | Record demo, polish README, and finalize submission assets | P1 | Todo | VP-010 | Final hackathon packaging |
+| VP-011 | Record demo, polish README, and finalize submission assets | P1 | Done | VP-010 | README + submission pack added |
 
 ## Working Rules
 
